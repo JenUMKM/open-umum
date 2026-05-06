@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { logout } from '@/app/auth/actions';
-import { createClient } from '../utils/supabase/server';
 // Import icon jika Anda ingin tampilan lebih konsisten dengan dashboard
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
+import { createClient } from '../utils/supabase/client';
 
 const Navbar = async () => {
   const supabase = await createClient();
