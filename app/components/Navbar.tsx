@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { logout } from '@/app/auth/actions';
 // Import icon jika Anda ingin tampilan lebih konsisten dengan dashboard
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { createClient } from '../utils/supabase/client';
+import { createClient } from '../utils/supabase/server';
 
 const Navbar = async () => {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
