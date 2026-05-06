@@ -1,0 +1,32 @@
+{
+  "teams": [
+    {
+      "slug": "ian-perdiansah",
+      "name": "Ian Perdiansah",
+      "role": "Web Developer",
+      "desc": "Seorang Web Developer yang berfokus pada pengembangan web sejak 2020.",
+      "bio": "Seorang Web Developer yang berfokus pada pengembangan web sejak 2020. Ian telah membantu lebih dari 50 UMKM mendesain identitas visual dan antarmuka aplikasi mereka agar lebih kompetitif di pasar digital.",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "image": "/assets/img/teams-1.jpg",
+      "github": "https://github.com/ianz56"
+    },
+    {
+      "slug": "ratjendra-yogatama",
+      "name": "Ratjendra Yogatama",
+      "role": "UI/UX Designer",
+      "desc": "Seorang UI/UX Designer yang berfokus pada desain produk digital sejak 2020.",
+      "bio": "Seorang UI/UX Designer yang berfokus pada desain produk digital sejak 2020. Ratjendra telah membantu lebih dari 50 UMKM mendesain identitas visual dan antarmuka aplikasi mereka agar lebih kompetitif di pasar digital.",
+      "skills": ["Figma", "Adobe XD", "Prototyping", "User Research"],
+      "image": "/assets/img/teams-2.jpg",
+      "github": "https://github.com/Jendrapusing"
+    }
+  ]
+}
