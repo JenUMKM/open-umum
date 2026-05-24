@@ -11,17 +11,16 @@ export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  if (!user) redirect("/login");
 
   const { count, error } = await supabase
     .from("products")
     .select("*", { count: 'exact', head: true })
-    .eq("user_id", user.id);
+    .eq("user_id", user!.id);
 
   const stats = [
     { 
       label: "Produk", 
-      value: error ? "0" : count?.toString() || "0", // Ambil dari DB
+      value: error ? "0" : count?.toString() || "0", 
       icon: HiOutlineCube, 
       color: "text-blue-600" 
     },
@@ -35,7 +34,7 @@ export default async function DashboardPage() {
       <header>
         <h1 className="text-2xl font-black text-slate-900 tracking-tight">Ringkasan Bisnis</h1>
         <p className="text-sm text-slate-500">
-          Selamat datang kembali, <span className="font-bold text-slate-900">{user.email?.split('@')[0]}</span>.
+          Selamat datang kembali, <span className="font-bold text-slate-900">{user!.email?.split('@')[0]}</span>.
         </p>
       </header>
 

@@ -15,35 +15,67 @@ export default function AddProductForm() {
         <h3 className="text-sm font-black uppercase tracking-wider">Input Produk Baru</h3>
       </div>
       
-      <form action={formAction} className="grid gap-4 sm:grid-cols-3">
+      <form action={formAction} className="grid gap-4 sm:grid-cols-3 items-start">
+        
         <div className="space-y-1">
           <input 
             name="name"
             type="text" 
-            required
             placeholder="Nama Produk" 
-            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900 font-medium outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
+            className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 font-medium outline-none transition focus:ring-2 ${
+              state?.errors?.name 
+                ? "border-red-300 focus:border-red-500 focus:ring-red-100" 
+                : "border-slate-200 focus:border-blue-500 focus:ring-blue-100"
+            }`}
           />
+          {state?.errors?.name && (
+            <p className="text-[11px] font-medium text-red-500 pl-1">
+              {state.errors.name[0]}
+            </p>
+          )}
         </div>
+
         <div className="space-y-1">
           <input 
             name="price"
-            type="number" 
-            required
+            type="text"
             placeholder="Harga (Rp)" 
-            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900 font-medium outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
+            className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 font-medium outline-none transition focus:ring-2 ${
+              state?.errors?.price 
+                ? "border-red-300 focus:border-red-500 focus:ring-red-100" 
+                : "border-slate-200 focus:border-blue-500 focus:ring-blue-100"
+            }`}
           />
+          {state?.errors?.price && (
+            <p className="text-[11px] font-medium text-red-500 pl-1">
+              {state.errors.price[0]}
+            </p>
+          )}
         </div>
-        <div className="flex gap-2">
-          <input 
-            name="stock"
-            type="number" 
-            required
-            placeholder="Stok" 
-            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900 font-medium outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
-          />
-          <SubmitButton label="Simpan" />
+
+        <div className="space-y-1">
+          <div className="flex gap-2 items-start">
+            <div className="w-full">
+              <input 
+                name="stock"
+                type="text" 
+                placeholder="Stok" 
+                className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 font-medium outline-none transition focus:ring-2 ${
+                  state?.errors?.stock 
+                    ? "border-red-300 focus:border-red-500 focus:ring-red-100" 
+                    : "border-slate-200 focus:border-blue-500 focus:ring-blue-100"
+                }`}
+              />
+            </div>
+            <SubmitButton label="Simpan" />
+          </div>
+          {state?.errors?.stock && (
+            <p className="text-[11px] font-medium text-red-500 pl-1/2">
+              {state.errors.stock[0]}
+            </p>
+          )}
         </div>
+
       </form>
       
       {state?.message && (

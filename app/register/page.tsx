@@ -18,7 +18,6 @@ export default function RegisterPage() {
           </p>
         </header>
 
-        {/* Notifikasi Status */}
         {state?.message && (
           <div className={`mt-6 rounded-xl border p-4 text-sm font-medium ${
             state.success 
@@ -30,16 +29,24 @@ export default function RegisterPage() {
         )}
 
         <form action={formAction} className="mt-8 grid gap-4">
+          
           <div className="space-y-2">
             <label className="text-sm font-semibold text-slate-900">Email Bisnis</label>
             <input
               name="email"
-              type="email"
-              required
-              /* Menambahkan text-slate-900 untuk warna teks ketikan hitam */
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+              type="text"
+              className={`w-full rounded-xl border px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:ring-2 ${
+                state?.errors?.email 
+                  ? "border-red-300 focus:border-red-500 focus:ring-red-100" 
+                  : "border-slate-200 focus:border-emerald-500 focus:ring-emerald-100"
+              }`}
               placeholder="nama@bisnisanda.com"
             />
+            {state?.errors?.email && (
+              <p className="text-xs font-medium text-red-500 mt-1 pl-1">
+                {state.errors.email[0]}
+              </p>
+            )}
           </div>
 
           <div className="space-y-2">
@@ -47,11 +54,18 @@ export default function RegisterPage() {
             <input
               name="password"
               type="password"
-              required
-              /* Menambahkan text-slate-900 untuk warna teks ketikan hitam */
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+              className={`w-full rounded-xl border px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:ring-2 ${
+                state?.errors?.password 
+                  ? "border-red-300 focus:border-red-500 focus:ring-red-100" 
+                  : "border-slate-200 focus:border-emerald-500 focus:ring-emerald-100"
+              }`}
               placeholder="Minimal 6 karakter"
             />
+            {state?.errors?.password && (
+              <p className="text-xs font-medium text-red-500 mt-1 pl-1">
+                {state.errors.password[0]}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center gap-2 py-2">

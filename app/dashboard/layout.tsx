@@ -28,7 +28,6 @@ export default async function DashboardLayout({
 
     return (
         <div className="flex min-h-screen bg-slate-50">
-            {/* Sidebar - Fixed on desktop */}
             <aside className="fixed inset-y-0 left-0 z-50 w-64 border-r border-slate-200 bg-white hidden lg:flex flex-col">
                 <div className="p-6">
                     <Link href="/" className="text-xl font-black text-slate-900 tracking-tight">
@@ -63,9 +62,7 @@ export default async function DashboardLayout({
                 </div>
             </aside>
 
-            {/* Main Content Area */}
             <div className="flex-1 lg:ml-64">
-                {/* Top Header Mobile Only */}
                 <header className="lg:hidden flex items-center justify-between bg-white p-4 border-b border-slate-200 sticky top-0 z-30">
                     <span className="font-black text-slate-900">OpenUMKM</span>
                     <details className="relative">
